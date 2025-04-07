@@ -1,0 +1,121 @@
+/* ヘッダー */
+.header {
+  padding: 15px 20px;
+  background: #ffe6e6;
+  position: relative;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* ロゴ */
+.logo a {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #d35400;
+  text-decoration: none;
+}
+
+.logo a span {
+  color: #e74c3c; /* 三条グルメの部分を別色に */
+}
+
+/* ナビゲーションメニュー（PC時） */
+.nav-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* メニューのリスト */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  gap: 5px;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links li a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.nav-links li a:hover {
+  background-color: #ffe9dc;
+  color: #d35400;
+}
+
+/* ハンバーガーメニュー */
+.hamburger {
+  font-size: 2rem;
+  cursor: pointer;
+  display: none; /* PCでは非表示 */
+}
+
+/* スマホ用ナビゲーション */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-menu {
+    position: absolute;
+    /* top: 60px; */
+    right: 0;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  .nav-links li a {
+    display: block;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  /* ハンバーガーメニューが開いた時 */
+  .nav-menu.active {
+    background: #ffe6e6;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    width: 100%;
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+    overflow: visible;
+  }
+}

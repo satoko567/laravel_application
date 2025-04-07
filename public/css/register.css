@@ -1,0 +1,148 @@
+/* ===== ヒーローセクションの背景画像 ===== */
+.register-hero {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 背景画像を明るめにする */
+.register-hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/register-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(1.2) contrast(1.1); /* ちょっと明るく & コントラストを調整 */
+  opacity: 0.9; /* 背景をよりはっきりさせる */
+}
+
+.register-hero-content {
+  position: relative;
+  background: rgba(240, 240, 240, 0.85); /* 柔らかいグレーに変更 */
+  color: #333; /* 落ち着いたダークグレー */
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 影をつけて立体感 */
+}
+
+/* ===== 画像のデザインを明るく & ポップに変更 ===== */
+.register-image {
+  width: 110px; /* 画像サイズ */
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%; /* 丸くする */
+  margin-bottom: 10px;
+  background: #fff; /* 白背景を追加してポップに */
+  padding: 5px; /* 白い枠を作る */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* ふんわり影を追加 */
+}
+
+/* ===== タイトルをより目立たせる ===== */
+.register-hero-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d35400; /* オレンジ色で明るい印象 */
+}
+
+.register-hero-content p {
+  font-size: 1.2rem;
+  color: #333; /* 暗すぎないナチュラルな色 */
+}
+
+/* ===== フォームのデザイン ===== */
+.register-form-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.register-form-section h3 {
+  font-size: 1.8rem;
+  color: #d35400;
+  margin-bottom: 20px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-register {
+  display: inline-block;
+  width: fit-content; /* テキストの長さに応じた幅 */
+  max-width: 400px; /* さらに横長に */
+  padding: 12px 48px; /* 横の余白を増やす */
+  font-size: 1.2rem;
+  color: white;
+  background: #d35400;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  margin: 0 auto; /* 中央寄せ */
+}
+
+.btn-register:hover {
+  background: #b34100;
+}
+
+/* ===== ログインリンクのスタイル ===== */
+.login-link {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.login-link p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.btn-login-link {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background: #d35400;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-login-link:hover {
+  background: #b34100;
+}

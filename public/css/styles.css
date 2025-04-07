@@ -1,0 +1,21 @@
+@import url('header.css');
+@import url('footer.css');
+@import url('home.css');
+@import url('stores.css');
+@import url('form.css');
+@import url('register.css');
+@import url('login.css');
+@import url('error-messages.css');
+
+
+/* 全体 */
+*{
+  margin: 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
