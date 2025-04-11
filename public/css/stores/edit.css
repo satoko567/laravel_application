@@ -1,0 +1,91 @@
+/* 編集ページ全体 */
+.store-edit-post-section {
+  background: #f4fbf0;
+  padding: 60px 20px;
+  border-top: 3px solid #dff2d4;
+  border-bottom: 3px solid #dff2d4;
+}
+
+.store-edit-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.store-edit-form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #85cc57;
+  margin-bottom: 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.store-edit-form-subtext {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* 入力欄 */
+.store-edit-form .store-edit-group {
+  margin-bottom: 30px;
+  text-align: left;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.store-edit-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+.store-edit-form input[type="url"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+
+.store-edit-form input[type="url"]:focus {
+  border-color: #85cc57;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(133, 204, 87, 0.15);
+}
+
+.store-edit-note {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 6px;
+}
+
+
+/* 更新ボタン */
+.store-edit-btn-submit {
+  background-color: #85cc57;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.store-edit-btn-submit:hover {
+  background-color: #6caf3e;
+  cursor: pointer;
+}

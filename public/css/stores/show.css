@@ -1,0 +1,150 @@
+.store-detail-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* CTAボタン */
+.store-detail-cta-post-again {
+  margin: 10px 0 30px; /* ← ヘッダーとの間を少し縮める */
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.store-detail-btn-post-again,
+.store-detail-btn-my-posts {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  color: white;
+  background: #d35400;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  min-width: 180px;
+  text-align: center;
+}
+
+.store-detail-btn-post-again:hover,
+.store-detail-btn-my-posts:hover {
+  background: #b34100;
+}
+
+@media (max-width: 480px) {
+  .store-detail-btn-post-again,
+  .store-detail-btn-my-posts {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .store-detail-cta-post-again {
+    gap: 15px;
+  }
+}
+
+
+
+/* 店舗詳細カード */
+.store-detail-card {
+  background: #fff7f7;
+  border: 1px solid #f3cccc;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.store-detail-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.store-detail-info {
+  margin-top: 10px;
+}
+
+.store-detail-name {
+  font-size: 2rem;
+  color: #d35400;
+  margin-bottom: 10px;
+}
+
+.store-detail-address,
+.store-detail-phone,
+.store-detail-website,
+.store-detail-map-link,
+.store-detail-registered {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+
+/* 編集・削除ボタンコンテナ（レスポンシブ対応） */
+.store-detail-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.store-detail-btn-edit,
+.store-detail-btn-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  font-size: 0.85rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  line-height: 1;
+}
+
+
+/* 編集ボタン */
+.store-detail-btn-edit {
+  font-size: 0.8rem;
+  background-color: #ecf9e7;
+  color: #85cc57;
+  border: 1px solid #85cc57;
+  border-radius: 4px;
+  padding: 4px 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.store-detail-btn-edit:hover {
+  background-color: #85cc57;
+  color: #fff;
+}
+
+
+/* 削除ボタン */
+.store-detail-btn-delete {
+  color: #888;
+  transition: color 0.2s ease;
+}
+
+.store-detail-btn-delete:hover {
+  color: #e74c3c;
+}
+
+
+/* モバイル調整*/
+@media (max-width: 480px) {
+  .store-detail-btn-edit {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+}

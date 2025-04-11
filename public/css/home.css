@@ -2,14 +2,13 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 400px; /* 高さは適宜調整 */
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-/* 画像用のdivを作って透明度を適用 */
 .hero-bg {
   position: absolute;
   width: 100%;
@@ -17,14 +16,14 @@
   background-image: url('/images/gourmet.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.7; /* ← これで写真を薄くする */
+  opacity: 0.7;
   z-index: 0;
 }
 
 /* コンテンツ部分 */
 .hero-content {
   position: relative;
-  background: rgba(0, 0, 0, 0.6); /* 半透明の黒で文字を見やすく */
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   padding: 30px;
   border-radius: 10px;
@@ -72,6 +71,27 @@
   background: #d35400;
   color: white;
 }
+
+
+@media (max-width: 600px) {
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+    max-width: 200px;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    text-align: center;
+  }
+}
+
+
 
 /*「みんなの三条グルメとは？」のセクション */
 .about {
@@ -123,3 +143,75 @@
   background: #b34100;
 }
 
+
+/* みんなが投稿したおすすめグルメのセクション */
+.gourmet-section {
+  background: linear-gradient(to right, #fff5f2, #fffaf9);
+  padding: 60px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-top: 3px solid #ffe5dc;
+  border-bottom: 3px solid #ffe5dc;
+}
+
+
+.section-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #d35400;
+  margin-bottom: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.section-subtext {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+/* あなたも次の投稿者になりませんか？のセクション */
+.cta-post-section {
+  background: #ffebe6;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 20px auto 10px;
+  max-width: 900px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.cta-heading {
+  font-size: 1.8rem;
+  color: #d35400;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.cta-subtext {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.btn-cta {
+  display: inline-block;
+  background-color: #d35400;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #b34100;
+}
