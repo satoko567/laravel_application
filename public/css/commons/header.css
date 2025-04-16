@@ -21,7 +21,7 @@
 }
 
 .logo a span {
-  color: #e74c3c; /* 三条グルメの部分を別色に */
+  color: #e74c3c;
 }
 
 /* ナビゲーションメニュー（PC時） */
@@ -62,7 +62,7 @@
 .hamburger {
   font-size: 2rem;
   cursor: pointer;
-  display: none; /* PCでは非表示 */
+  display: none;
 }
 
 /* スマホ用ナビゲーション */

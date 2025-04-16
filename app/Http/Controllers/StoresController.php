@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Store;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreRequest;
+use App\Services\GooglePlacesService;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class StoresController extends Controller
 {
@@ -36,24 +39,55 @@ class StoresController extends Controller
     }
 
     // 登録処理
-    public function store(StoreRequest $request)
+    public function store(Request $request, GooglePlacesService $googlePlacesService)
     {
-        // TODO: ここでGoogle Places APIを使って情報を取得
-        // 今は仮データで作成
+        // ① 入力バリデーション
+        $shortUrl = $request->google_map_url;
+
+        // ② URLから place 情報を取得
+        $place = $googlePlacesService->getPlaceDetailsFromSharedUrl($shortUrl);
+
+        if (!$place) {
+            return back()->with('error', '店舗情報を取得できませんでした。');
+        }
+
+        $placeId = $place['place_id'];
+
+       // ③ 同じユーザーによる重複投稿のチェック
+        $existingStore = Store::where('place_id', $placeId)
+        ->where('user_id', Auth::id())
+        ->first();
+
+        if ($existingStore) {
+        return redirect()->route('stores.show', $existingStore->id)
+        ->with('info', 'この店舗は既に投稿されています。再度の投稿ありがとう！');
+        }
+
+
+        // ④ サムネイル画像があれば取得、なければデフォルト
+        $imageUrl = !empty($place['photos'][0]['photo_reference'])
+        ? $googlePlacesService->getPhotoUrl($place['photos'][0]['photo_reference'])
+        : asset('images/no_image.jpg');
+
+
+        // ⑤ DBへ保存
         $store = Store::create([
-            'name' => '仮店舗',
-            'google_map_url' => $request->input('google_map_url'),
-            'place_id' => '仮ID_' . uniqid(),
-            'address' => '新潟県三条市〇〇',
-            'latitude' => 37.911111,
-            'longitude' => 139.061111,
-            'user_id' => Auth::id(),
+            'name'         => $place['name'] ?? '不明な店舗',
+            'google_map_url' => $shortUrl,
+            'place_id'     => $placeId,
+            'address'      => $place['formatted_address'] ?? null,
+            'latitude'     => $place['geometry']['location']['lat'] ?? null,
+            'longitude'    => $place['geometry']['location']['lng'] ?? null,
+            'phone_number' => $place['formatted_phone_number'] ?? null,
+            'website'      => $place['website'] ?? null,
+            'image'        => $imageUrl,
+            'user_id'      => Auth::id(),
         ]);
 
-        return redirect()
-            ->route('stores.show', $store->id)
+        return redirect()->route('stores.show', $store->id)
             ->with('success', '店舗を登録しました！');
     }
+
 
 
     // 編集画面の表示
@@ -68,27 +102,62 @@ class StoresController extends Controller
         return view('stores.edit', ['store' => $store]);
     }
 
+
     // 編集処理
     public function update(StoreRequest $request, $id)
     {
         $store = Store::findOrFail($id);
 
+        // ① 本人以外は編集禁止
         if (Auth::id() !== $store->user_id) {
             return redirect()->back()->with('error', '更新できません。');
         }
 
+        $shortUrl = $request->input('google_map_url');
+        $googlePlacesService = app(\App\Services\GooglePlacesService::class);
+
+        // ② URLから詳細取得
+        $place = $googlePlacesService->getPlaceDetailsFromSharedUrl($shortUrl);
+
+        if (!$place) {
+            return back()->with('error', '店舗情報を取得できませんでした。');
+        }
+
+        $placeId = $place['place_id'];
+
+        // ③ 他の投稿と重複していないかチェック
+        $duplicate = Store::where('place_id', $placeId)
+                        ->where('id', '<>', $store->id)
+                        ->first();
+
+        if ($duplicate) {
+            return redirect()->route('stores.show', $duplicate->id)
+                            ->with('info', 'この店舗はすでに登録されています。再度の登録ありがとう！');
+        }
+
+        // ④ 写真の取得
+        $photoUrl = !empty($place['photos'][0]['photo_reference'])
+            ? $googlePlacesService->getPhotoUrl($place['photos'][0]['photo_reference'])
+            : asset('images/no_image.jpg');
+
+        // ⑤ 更新処理
         $store->update([
-            'google_map_url' => $request->input('google_map_url'),
-            'name' => '仮店舗（編集）',
-            'address' => '新潟県新潟市△△',
-            'place_id' => '仮ID_' . uniqid(),
-            'latitude' => 37.911111,
-            'longitude' => 139.061111,
+            'google_map_url' => $shortUrl,
+            'name'           => $place['name'] ?? '不明な店舗',
+            'address'        => $place['formatted_address'] ?? null,
+            'place_id'       => $placeId,
+            'latitude'       => $place['geometry']['location']['lat'] ?? null,
+            'longitude'      => $place['geometry']['location']['lng'] ?? null,
+            'phone_number'   => $place['formatted_phone_number'] ?? null,
+            'website'        => $place['website'] ?? null,
+            'image'          => $photoUrl,
         ]);
 
         return redirect()->route('stores.show', $store->id)
                         ->with('success', '店舗情報を更新しました！');
     }
+
+
 
     // 店舗削除
     public function destroy($id)

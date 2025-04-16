@@ -13,6 +13,7 @@
       <main class="container">
         @include('commons.error_messages')
         @include('commons.flash_messages')
+        @include('commons.info_messages')
         @yield('content')
       </main>
       @include('commons.footer')

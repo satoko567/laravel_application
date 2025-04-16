@@ -1,4 +1,4 @@
-/* ===== ヒーローセクションの背景画像 ===== */
+/*ヒーローセクションの背景画像 */
 .login-hero {
   position: relative;
   width: 100%;
@@ -9,7 +9,6 @@
   overflow: hidden;
 }
 
-/* 背景画像を少し暗めにする */
 .login-hero-bg {
   position: absolute;
   width: 100%;
@@ -58,7 +57,7 @@
   color: #333;
 }
 
-/* ===== フォームのデザイン ===== */
+/* フォームのデザイン */
 .login-form-section {
   max-width: 600px;
   margin: 40px auto;

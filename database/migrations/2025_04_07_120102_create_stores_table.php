@@ -16,15 +16,17 @@ class CreateStoresTable extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('google_map_url');
-            $table->string('place_id')->unique();
+            $table->text('google_map_url');
+            $table->string('place_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unique(['place_id', 'user_id']); 
+            
             $table->string('address')->nullable();
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('website')->nullable();
-            $table->string('image')->nullable();
-            $table->bigInteger('user_id')->unsigned()->index();
+            $table->text('website')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

@@ -23,7 +23,9 @@
       <div class="store-detail-info">
         <h2 class="store-detail-name">{{ $store->name }}</h2>
 
-        <p class="store-detail-address">住所：{{ $store->address }}</p>
+        <p class="store-detail-address">
+          住所：{{ preg_replace('/^日本、?/', '', $store->address) }}
+        </p>
 
         @if ($store->phone_number)
           <p class="store-detail-phone">電話番号：{{ $store->phone_number }}</p>
@@ -39,7 +41,9 @@
           <a href="{{ $store->google_map_url }}" target="_blank">📍 Googleマップで見る</a>
         </p>
 
-        <p class="store-detail-registered">投稿者：{{ $store->user->name }}</p>
+        <p class="store-detail-registered">
+          投稿者：{{ $store->user->name }}<span class="store-detail-user-suffix">さん</span>
+        </p>
       </div>
 
         @if (Auth::check() && Auth::id() === $store->user_id)

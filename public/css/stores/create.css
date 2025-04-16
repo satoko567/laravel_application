@@ -32,16 +32,6 @@
   font-family: 'Noto Sans JP', sans-serif;
 }
 
-@media (max-width: 480px) {
-  .store-create-form-container {
-    padding: 30px 20px;
-  }
-
-  .store-create-btn-submit {
-    width: 100%;
-  }
-}
-
 
 
 /* 入力欄 */
@@ -92,4 +82,15 @@
 .store-create-btn-submit:hover {
   background-color: #b34100;
   cursor: pointer;
+}
+
+
+@media (max-width: 480px) {
+  .store-create-form-container {
+    padding: 30px 20px;
+  }
+
+  .store-create-btn-submit {
+    width: 100%;
+  }
 }

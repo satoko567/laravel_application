@@ -1,4 +1,4 @@
-/* ===== ヒーローセクションの背景画像 ===== */
+/*ヒーローセクションの背景画像 */
 .register-hero {
   position: relative;
   width: 100%;
@@ -9,7 +9,6 @@
   overflow: hidden;
 }
 
-/* 背景画像を明るめにする */
 .register-hero-bg {
   position: absolute;
   width: 100%;
@@ -17,14 +16,14 @@
   background-image: url('/images/register-bg.jpg');
   background-size: cover;
   background-position: center;
-  filter: brightness(1.2) contrast(1.1); /* ちょっと明るく & コントラストを調整 */
-  opacity: 0.9; /* 背景をよりはっきりさせる */
+  filter: brightness(1.2) contrast(1.1); 
+  opacity: 0.9;
 }
 
 .register-hero-content {
   position: relative;
-  background: rgba(240, 240, 240, 0.85); /* 柔らかいグレーに変更 */
-  color: #333; /* 落ち着いたダークグレー */
+  background: rgba(240, 240, 240, 0.85);
+  color: #333;
   padding: 20px 30px;
   border-radius: 10px;
   text-align: center;
@@ -33,34 +32,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 影をつけて立体感 */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== 画像のデザインを明るく & ポップに変更 ===== */
+/* 画像のデザイン */
 .register-image {
-  width: 110px; /* 画像サイズ */
+  width: 110px;
   height: 110px;
   object-fit: cover;
-  border-radius: 50%; /* 丸くする */
+  border-radius: 50%;
   margin-bottom: 10px;
-  background: #fff; /* 白背景を追加してポップに */
-  padding: 5px; /* 白い枠を作る */
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* ふんわり影を追加 */
+  background: #fff;
+  padding: 5px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== タイトルをより目立たせる ===== */
+
+/* タイトル */
 .register-hero-content h2 {
   font-size: 2rem;
   font-weight: bold;
-  color: #d35400; /* オレンジ色で明るい印象 */
+  color: #d35400;
 }
 
 .register-hero-content p {
   font-size: 1.2rem;
-  color: #333; /* 暗すぎないナチュラルな色 */
+  color: #333;
 }
 
-/* ===== フォームのデザイン ===== */
+/* フォームのデザイン */
 .register-form-section {
   max-width: 600px;
   margin: 40px auto;
@@ -103,9 +103,9 @@
 
 .btn-register {
   display: inline-block;
-  width: fit-content; /* テキストの長さに応じた幅 */
-  max-width: 400px; /* さらに横長に */
-  padding: 12px 48px; /* 横の余白を増やす */
+  width: fit-content; 
+  max-width: 400px;
+  padding: 12px 48px;
   font-size: 1.2rem;
   color: white;
   background: #d35400;
@@ -114,14 +114,14 @@
   cursor: pointer;
   transition: 0.3s;
   text-align: center;
-  margin: 0 auto; /* 中央寄せ */
+  margin: 0 auto;
 }
 
 .btn-register:hover {
   background: #b34100;
 }
 
-/* ===== ログインリンクのスタイル ===== */
+/* ログインリンクのスタイル */
 .login-link {
   margin-top: 40px;
   text-align: center;

@@ -6,9 +6,10 @@
   margin-top: 40px;
 }
 
+/* レスポンシブ対応 */
 @media (max-width: 1024px) {
   .latest-store-grid {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -28,30 +29,44 @@
   transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 320px; /* ← 高さを指定して整える */
-}
-
-.latest-store-card:hover {
-  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  height: auto;
 }
 
 .latest-store-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-bottom: 1px solid #eee;
 }
 
 .latest-store-card p {
-  flex-grow: 1;
-  padding: 12px;
+  padding: 16px 12px;
   font-size: 1rem;
   text-align: center;
   font-weight: bold;
   color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  line-height: 1.4;
+  background-color: #fafafa;
+  margin: 0;
+  word-break: break-word;
+  white-space: normal;
 }
+
+.latest-store-card:hover {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+
+/* 投稿者名 */
+.poster-name {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: normal;
+  word-break: break-word;
+  display: inline-block;
+}
+
+
 
 /* ページネーション */
 .latest-pagination-wrapper {

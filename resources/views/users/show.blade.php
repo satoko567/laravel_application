@@ -5,16 +5,18 @@
     <h2>{{ $user->name }}さんのマイページ</h2>
 
     {{-- タブ切り替え --}}
-    <ul class="tab-menu">
-      <li class="active" data-tab="my-stores">
-        自分の投稿
-        <span class="tab-badge">{{ $user->stores->count() }}</span>
-      </li>
-      <li data-tab="liked-stores">
-        いいねした店舗
-        <span class="tab-badge">{{ $likedStores->count() }}</span>
-      </li>
-    </ul>
+    <div class="tab-wrapper">
+      <ul class="tab-menu">
+        <li class="active" data-tab="my-stores">
+          自分の投稿
+          <span class="tab-badge">{{ $user->stores->count() }}</span>
+        </li>
+        <li data-tab="liked-stores">
+          いいねした店舗
+          <span class="tab-badge">{{ $likedStores->count() }}</span>
+        </li>
+      </ul>
+    </div>
 
     {{-- 自分の店舗一覧 --}}
     <div class="tab-content active" id="my-stores">
@@ -36,15 +38,9 @@
                 <img src="{{ $store->image ?: asset('images/noimage.png') }}" alt="{{ $store->name }}" class="mypage-store-image">
                 <div class="mypage-store-info">
                   <h3>{{ $store->name }}</h3>
-                  <p class="mypage-store-address">{{ $store->address }}</p>
+                  <p class="mypage-store-address">{{ preg_replace('/^日本、/', '', $store->address) }}</p>
                 </div>
               </a>
-              {{-- 削除ボタンを一旦非表示 --}}
-              {{-- <form action="{{ route('store.delete', ['id' => $store->id]) }}" method="POST" onsubmit="return confirm('本当に削除しますか？')">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="mypage-btn-delete">削除</button>
-              </form> --}}
             </div>
           @endforeach
         </div>

@@ -19,7 +19,6 @@ class Store extends Model
         'phone_number',
         'website',
         'image',
-        'category',
         'user_id',
     ];
 

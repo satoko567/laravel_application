@@ -3,6 +3,7 @@
 @import url('commons/error_messages.css');
 @import url('commons/footer.css');
 @import url('commons/header.css');
+@import url('commons/info_messages.css');
 @import url('commons/success_message.css');
 @import url('components/latest_user_stores.css');
 @import url('stores/create.css');
@@ -14,13 +15,22 @@
 
 
 /* 全体 */
-*{
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* レイアウト用 */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0;
 }
-
-

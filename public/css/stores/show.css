@@ -1,12 +1,14 @@
+/* 店舗詳細 */
 .store-detail-container {
   max-width: 800px;
-  margin: 20px auto;
+  margin: 5px auto;
   padding: 20px;
 }
 
+
 /* CTAボタン */
 .store-detail-cta-post-again {
-  margin: 10px 0 30px; /* ← ヘッダーとの間を少し縮める */
+  margin: 10px 0 30px;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -33,18 +35,6 @@
   background: #b34100;
 }
 
-@media (max-width: 480px) {
-  .store-detail-btn-post-again,
-  .store-detail-btn-my-posts {
-    width: 100%;
-    max-width: 200px;
-  }
-
-  .store-detail-cta-post-again {
-    gap: 15px;
-  }
-}
-
 
 
 /* 店舗詳細カード */
@@ -52,7 +42,7 @@
   background: #fff7f7;
   border: 1px solid #f3cccc;
   border-radius: 10px;
-  padding: 30px;
+  padding: 30px 20px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
@@ -65,6 +55,7 @@
   margin-bottom: 20px;
 }
 
+
 .store-detail-info {
   margin-top: 10px;
 }
@@ -75,13 +66,27 @@
   margin-bottom: 10px;
 }
 
+.store-detail-website {
+  margin-bottom: 14px;
+}
+
+.store-detail-website a {
+  word-break: break-word;
+  display: inline-block;
+  max-width: 100%;
+}
+
 .store-detail-address,
 .store-detail-phone,
-.store-detail-website,
 .store-detail-map-link,
 .store-detail-registered {
   font-size: 1.1rem;
   margin-bottom: 10px;
+}
+
+.store-detail-user-suffix {
+  font-size: 0.8em;
+  color: #555;
 }
 
 
@@ -143,8 +148,31 @@
 
 /* モバイル調整*/
 @media (max-width: 480px) {
+  .store-detail-container {
+    padding: 12px;
+  }
+
+  .store-detail-card {
+    padding: 28px 18px;
+    max-width: 100%;
+  }
+
+  .store-detail-image {
+    margin-bottom: 15px;
+  }
+
   .store-detail-btn-edit {
     font-size: 0.85rem;
     padding: 6px 12px;
+  }
+
+  .store-detail-btn-post-again,
+  .store-detail-btn-my-posts {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .store-detail-cta-post-again {
+    gap: 15px;
   }
 }

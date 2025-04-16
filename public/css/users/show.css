@@ -1,3 +1,15 @@
+/* マイページ */
+.mypage-container {
+  padding: 0 24px;
+}
+
+@media (max-width: 600px) {
+  .mypage-container {
+    padding: 0 10px;
+  }
+}
+
+
 .mypage-actions {
   display: flex;
   justify-content: space-between;
@@ -57,6 +69,7 @@
 }
 
 @media (max-width: 600px) {
+
   .mypage-store-grid {
     grid-template-columns: 1fr;
   }
@@ -73,7 +86,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  height: 330px; /* ← 高さ固定 */
+  height: 310px;
 }
 
 .mypage-store-card:hover {
@@ -90,22 +103,30 @@
 
 .mypage-store-info {
   flex-grow: 1;
-  padding: 10px 12px;
+  padding: 8px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .mypage-store-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
   color: #333;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+  max-height: 2.6em;
+  overflow: hidden;
 }
 
 .mypage-store-address {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #666;
+  word-wrap: break-word;
+  line-height: 1.4;
 }
+
 
 
 /* ページネーション */
@@ -195,6 +216,7 @@
   padding: 0;
   margin: 20px 0;
   border-bottom: 2px solid #ddd;
+  width: 100%;
 }
 
 .tab-menu li {
@@ -227,27 +249,35 @@
   vertical-align: middle;
 }
 
-
-/* 削除ボタン
-.mypage-btn-delete {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  font-size: 0.7rem;
-  color: #aaa;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 2px 6px;
-  cursor: pointer;
-  transition: 0.2s;
+.tab-wrapper {
+  width: 100%;
 }
 
-.mypage-btn-delete:hover {
-  color: #fff;
-  background-color: #e74c3c;
-  border-color: #e74c3c;
-} */
+@media (max-width: 600px) {
+  .tab-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .tab-menu {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: auto;
+    margin: 10px auto;
+  }
+
+  .tab-menu li {
+    flex: 1 1 auto;
+    min-width: 150px;
+    max-width: 160px;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+
+
 
 
 /* 退会リンク */
