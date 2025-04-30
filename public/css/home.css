@@ -43,7 +43,7 @@
 }
 
 /* ボタンデザイン */
-.btn-primary, .btn-secondary {
+.home-btn-primary, .home-btn-secondary {
   display: inline-block;
   padding: 12px 24px;
   font-size: 1rem;
@@ -52,22 +52,22 @@
   transition: 0.3s;
 }
 
-.btn-primary {
+.home-btn-primary {
   background: #d35400;
   color: white;
 }
 
-.btn-primary:hover {
+.home-btn-primary:hover {
   background: #b34100;
 }
 
-.btn-secondary {
+.home-btn-secondary {
   background: #ffebe6;
   color: #d35400;
   border: 2px solid #d35400;
 }
 
-.btn-secondary:hover {
+.home-btn-secondary:hover {
   background: #d35400;
   color: white;
 }
@@ -81,8 +81,8 @@
     gap: 5px;
   }
 
-  .hero-buttons .btn-primary,
-  .hero-buttons .btn-secondary {
+  .hero-buttons .home-btn-primary,
+  .hero-buttons .home-btn-secondary {
     width: 100%;
     max-width: 200px;
     padding: 14px 20px;
@@ -94,27 +94,27 @@
 
 
 /* みんなの三条グルメとは？ */
-.about {
+.home-about {
   max-width: 800px;
   margin: 40px auto;
   text-align: center;
   padding: 20px;
 }
 
-.about h3 {
+.home-about h3 {
   font-size: 1.8rem;
   color: #d35400;
   margin-bottom: 10px;
 }
 
-.about p {
+.home-about p {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #333;
 }
 
 /* 会員登録 */
-.register-section {
+.home-register-section {
   text-align: center;
   margin: 40px auto;
   padding: 20px;
@@ -122,13 +122,13 @@
   border-radius: 10px;
 }
 
-.register-text {
+.home-register-text {
   font-size: 1.5rem;
   color: #d35400;
   margin-bottom: 15px;
 }
 
-.btn-register {
+.home-btn-register {
   display: inline-block;
   padding: 12px 24px;
   font-size: 1.2rem;
@@ -139,13 +139,13 @@
   transition: 0.3s;
 }
 
-.btn-register:hover {
+.home-btn-register:hover {
   background: #b34100;
 }
 
 
 /* みんなが投稿したおすすめグルメ */
-.gourmet-section {
+.home-gourmet-section {
   background: linear-gradient(to right, #fff5f2, #fffaf9);
   padding: 60px 20px;
   text-align: center;
@@ -155,12 +155,12 @@
 }
 
 
-.section-inner {
+.home-section-inner {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.section-heading {
+.home-section-heading {
   font-size: 2rem;
   font-weight: 700;
   color: #d35400;
@@ -168,7 +168,7 @@
   font-family: 'Noto Sans JP', sans-serif;
 }
 
-.section-subtext {
+.home-section-subtext {
   font-size: 1rem;
   color: #555;
   line-height: 1.8;
@@ -176,8 +176,28 @@
 }
 
 
+.home-btn-check-ranking {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #fff;
+  border: 2px solid #d35400;
+  color: #d35400;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.home-btn-check-ranking:hover {
+  background-color: #d35400;
+  color: #fff;
+}
+
+
 /* あなたも次の投稿者になりませんか？ */
-.cta-post-section {
+.home-cta-post-section {
   background: #ffebe6;
   padding: 60px 20px;
   text-align: center;
@@ -187,21 +207,21 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.cta-heading {
+.home-cta-heading {
   font-size: 1.8rem;
   color: #d35400;
   margin-bottom: 15px;
   font-weight: bold;
 }
 
-.cta-subtext {
+.home-cta-subtext {
   font-size: 1.1rem;
   color: #555;
   margin-bottom: 25px;
   line-height: 1.6;
 }
 
-.btn-cta {
+.home-btn-cta {
   display: inline-block;
   background-color: #d35400;
   color: white;
@@ -212,6 +232,6 @@
   transition: background-color 0.3s ease;
 }
 
-.btn-cta:hover {
+.home-btn-cta:hover {
   background-color: #b34100;
 }

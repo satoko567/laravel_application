@@ -1,0 +1,29 @@
+.like-wrapper {
+  padding: 10px;
+  text-align: center;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #d35400;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: color 0.3s;
+}
+
+.like-button.liked {
+  color: #e74c3c;
+}
+
+.like-count {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.like-count.guest {
+  display: inline-block;
+  color: #e74c3c;
+  font-size: 0.9rem;
+}

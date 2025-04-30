@@ -4,7 +4,7 @@
   color: white;
   padding: 20px 0;
   text-align: center;
-  margin-top: 20px;
+  margin-top: auto;
   font-size: 0.9rem;
 }
 
@@ -12,22 +12,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
 }
 
 .footer-links a:hover {

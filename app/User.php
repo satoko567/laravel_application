@@ -47,6 +47,43 @@ class User extends Authenticatable
 
     public function latestStore()
     {
-    return $this->hasOne(Store::class)->latest('created_at');
+        return $this->hasOne(Store::class)->latest('created_at');
     }
+
+
+
+    public function likes()
+    {
+        return $this->belongsToMany(Store::class, 'likes', 'user_id', 'store_id')->withTimestamps();
+    }
+
+
+    public function like($storeId)
+    {
+        $exist = $this->isLike($storeId);
+        if ($exist) {
+            return false;
+        } else {
+            $this->likes()->attach($storeId);
+            return true;
+        }
+    }
+
+
+    public function unlike($storeId)
+    {
+        $exist = $this->isLike($storeId);
+        if ($exist) {
+            $this->likes()->detach($storeId);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isLike($storeId)
+    {
+        return $this->likes()->where('store_id', $storeId)->exists();
+    }
+
 }

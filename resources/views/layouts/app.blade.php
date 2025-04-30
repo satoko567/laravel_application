@@ -18,5 +18,6 @@
       </main>
       @include('commons.footer')
       <script src="{{ asset('js/script.js') }}"></script>
+      @stack('scripts')
     </body>
 </html>

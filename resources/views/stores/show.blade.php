@@ -1,23 +1,34 @@
 @extends('layouts.app')
 @section('title', $store->name)
 @section('content')
+  @if (request('fresh'))
+    <script>
+      location.reload();
+    </script>
+  @endif
+  
   <div class="store-detail-container">
-    
-    <div class="store-detail-cta-post-again">
-      @if (session('success'))
-        <a href="{{ route('store.create') }}" class="store-detail-btn-post-again">さらにお店を投稿する</a>
-      @else
-        <a href="{{ route('store.create') }}" class="store-detail-btn-post-again">おすすめのお店を投稿する</a>
-      @endif
 
-      @if (Auth::check())
-        <a href="{{ route('user.show', Auth::id()) }}" class="store-detail-btn-my-posts">あなたの投稿をチェック</a>
-      @endif
+  {{-- ボタン --}}
+    <div class="store-detail-cta-post-again">
+      @auth
+        @if (session('post_success'))
+          <a href="{{ route('store.create') }}" class="store-detail-btn-post-again">さらに投稿する</a>
+        @else
+          <a href="{{ route('store.create') }}" class="store-detail-btn-post-again">お店を投稿する</a>
+        @endif
+        <a href="{{ route('stores.index') }}" class="store-detail-btn-post-again">人気な投稿をみる</a>
+        @else
+          <a href="{{ route('login') }}" class="store-detail-btn-post-again">ログインして投稿</a>
+          <a href="{{ route('signup') }}" class="store-detail-btn-post-again">無料会員登録</a>
+          <a href="{{ route('stores.index') }}" class="store-detail-btn-post-again">人気な投稿をみる</a>
+      @endauth
     </div>
 
+    {{-- 店舗詳細 --}}
     <div class="store-detail-card">
       @if ($store->image)
-        <img src="{{ $store->image }}" alt="{{ $store->name }}" class="store-detail-image">
+        <img src="{{ asset($store->image ?: 'images/noimage.png') }}" alt="{{ $store->name }}" class="store-detail-image">
       @endif
 
       <div class="store-detail-info">
@@ -42,10 +53,19 @@
         </p>
 
         <p class="store-detail-registered">
-          投稿者：{{ $store->user->name }}<span class="store-detail-user-suffix">さん</span>
+          投稿者：
+          @if (Auth::check() && Auth::id() === $store->user_id)
+            あなた
+          @else
+            <a href="{{ route('user.show', ['id' => $store->user->id]) }}" class="store-detail-user-link">
+              {{ $store->user->name }}さん
+            </a>
+          @endif
         </p>
-      </div>
 
+        {{-- いいね表示 --}}
+        @include('components.like_button', ['store' => $store])
+        
         @if (Auth::check() && Auth::id() === $store->user_id)
           <div class="store-detail-actions">
             <a href="{{ route('store.edit', ['id' => $store->id]) }}" class="store-detail-btn-edit">編集する</a>

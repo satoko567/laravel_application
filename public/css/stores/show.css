@@ -13,11 +13,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-.store-detail-btn-post-again,
-.store-detail-btn-my-posts {
+.store-detail-btn-post-again {
   display: inline-block;
   padding: 12px 24px;
   font-size: 1rem;
@@ -26,14 +25,24 @@
   border-radius: 6px;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  min-width: 180px;
+  min-width: 150px;
+  max-width: 200px;
   text-align: center;
+  flex: 1 1 auto;
 }
 
-.store-detail-btn-post-again:hover,
-.store-detail-btn-my-posts:hover {
+.store-detail-btn-post-again:hover:hover {
   background: #b34100;
 }
+
+.store-detail-btn-post-again:nth-child(2) {
+  background-color: #d35400;
+}
+
+.store-detail-btn-post-again:nth-child(2):hover {
+  background-color: #b34100;
+}
+
 
 
 
@@ -84,10 +93,37 @@
   margin-bottom: 10px;
 }
 
-.store-detail-user-suffix {
-  font-size: 0.8em;
-  color: #555;
+.store-detail-user-link {
+  color: #3498db;
+  text-decoration: none;
 }
+
+.store-detail-user-link:hover {
+  text-decoration: underline;
+}
+
+
+
+/* いいねボタン */
+.like-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #d35400;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: color 0.3s;
+}
+
+.like-button.liked {
+  color: #e74c3c;
+}
+
+.like-count {
+  font-size: 0.9rem;
+  color: #e74c3c;
+}
+
 
 
 /* 編集・削除ボタンコンテナ（レスポンシブ対応） */
@@ -166,13 +202,13 @@
     padding: 6px 12px;
   }
 
-  .store-detail-btn-post-again,
-  .store-detail-btn-my-posts {
+  .store-detail-btn-post-again {
     width: 100%;
     max-width: 200px;
+    min-width: auto;
   }
 
   .store-detail-cta-post-again {
-    gap: 15px;
+    gap: 10px;
   }
 }

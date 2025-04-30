@@ -6,31 +6,37 @@
 @import url('commons/info_messages.css');
 @import url('commons/success_message.css');
 @import url('components/latest_user_stores.css');
+@import url('components/like_button.css');
+@import url('components/user_store_card.css');
 @import url('stores/create.css');
 @import url('stores/edit.css');
+@import url('stores/index.css');
 @import url('stores/show.css');
 @import url('users/show.css');
 @import url('home.css');
 
 
 
-/* 全体 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+
+html, body {
+  height: 100%;
+}
+
 body {
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: #fff;
   font-family: 'Noto Sans JP', sans-serif;
 }
 
-/* レイアウト用 */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
   padding: 20px 0;
 }

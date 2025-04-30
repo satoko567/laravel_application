@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             //追記
+            $table->timestamp('last_login_at')->nullable();
             $table->softDeletes();
         });
     }

@@ -56,15 +56,50 @@
   box-shadow: 0 6px 14px rgba(0,0,0,0.1);
 }
 
-
-/* 投稿者名 */
-.poster-name {
-  font-size: 0.9rem;
-  color: #666;
-  font-weight: normal;
-  word-break: break-word;
-  display: inline-block;
+.latest-store-card a {
+  text-decoration: none;
+  color: inherit;
 }
+
+
+/* 店名と投稿者名 */
+.latest-store-info {
+  padding: 16px 12px;
+  text-align: center;
+  background-color: #fafafa;
+  margin: 0;
+}
+
+.latest-store-name {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.latest-store-name:hover {
+  color: #d35400;
+  text-decoration: underline;
+}
+
+.latest-poster-link {
+  font-size: 0.85rem;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.latest-poster-link:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.latest-poster-name {
+  display: inline-block;
+  margin-top: 4px;
+}
+
 
 
 

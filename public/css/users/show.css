@@ -1,16 +1,18 @@
-/* マイページ */
-.mypage-container {
+/*
+改訂版CSS（"いいね"の影響で重複しない構造対応）
+*/
+
+.user-detail-container {
   padding: 0 24px;
 }
 
 @media (max-width: 600px) {
-  .mypage-container {
+  .user-detail-container {
     padding: 0 10px;
   }
 }
 
-
-.mypage-actions {
+.user-detail-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +35,7 @@
   background-color: #b34100;
 }
 
-.mypage-btn-delete-all {
+.user-detail-btn-delete-all {
   background: transparent;
   border: 2px solid #e74c3c;
   color: #e74c3c;
@@ -44,110 +46,52 @@
   transition: 0.3s;
 }
 
-.mypage-btn-delete-all:hover {
+.user-detail-btn-delete-all:hover {
   background: #e74c3c;
   color: #fff;
 }
 
-.mypage-delete-all-form {
-  display: inline;
-}
-
-
-/* マイページ店舗用グリッド */
-.mypage-store-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.user-detail-store-section {
   margin-top: 30px;
 }
 
+.user-detail-store-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
 @media (max-width: 1024px) {
-  .mypage-store-grid {
+  .user-detail-store-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-
-  .mypage-store-grid {
+  .user-detail-store-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.mypage-store-card {
-  position: relative;
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: 0.3s;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  height: 310px;
-}
-
-.mypage-store-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-
-/* 店舗情報 */
-.mypage-store-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.mypage-store-info {
-  flex-grow: 1;
-  padding: 8px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.mypage-store-info h3 {
-  font-size: 0.95rem;
-  margin-bottom: 6px;
-  color: #333;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.3;
-  max-height: 2.6em;
-  overflow: hidden;
-}
-
-.mypage-store-address {
-  font-size: 0.85rem;
-  color: #666;
-  word-wrap: break-word;
-  line-height: 1.4;
-}
-
-
-
-/* ページネーション */
-.mypage-pagination-wrapper {
+.user-detail-pagination-wrapper {
   margin-top: 30px;
   text-align: center;
 }
 
-.mypage-pagination-wrapper .pagination {
+.user-detail-pagination-wrapper .pagination {
   display: inline-flex;
   padding-left: 0;
   list-style: none;
   margin: 0;
 }
 
-.mypage-pagination-wrapper .pagination li {
+.user-detail-pagination-wrapper .pagination li {
   margin: 0 4px;
 }
 
-.mypage-pagination-wrapper .pagination li a,
-.mypage-pagination-wrapper .pagination li span {
+.user-detail-pagination-wrapper .pagination li a,
+.user-detail-pagination-wrapper .pagination li span {
   display: block;
   padding: 6px 12px;
   border: 1px solid #ddd;
@@ -157,18 +101,16 @@
   border-radius: 4px;
 }
 
-.mypage-pagination-wrapper .pagination li.active span {
+.user-detail-pagination-wrapper .pagination li.active span {
   background-color: #d35400;
   color: #fff;
   border-color: #d35400;
 }
 
-.mypage-pagination-wrapper .pagination li a:hover {
+.user-detail-pagination-wrapper .pagination li a:hover {
   background-color: #f0f0f0;
 }
 
-
-/* まだ店舗を投稿していません。の表示 */
 .no-post-box {
   background-color: #fdf6f0;
   border: 1px solid #f0e0d6;
@@ -207,35 +149,29 @@
   background-color: #b34100;
 }
 
+.tab-wrapper {
+  width: 100%;
+  margin-top: 20px;
+}
 
-
-/* タブメニュー */
 .tab-menu {
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 20px 0;
+  margin: 0 0 20px 0;
   border-bottom: 2px solid #ddd;
-  width: 100%;
 }
 
 .tab-menu li {
   padding: 10px 20px;
   cursor: pointer;
   border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
 }
 
 .tab-menu li.active {
   border-bottom: 2px solid #3498db;
   font-weight: bold;
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
 }
 
 .tab-badge {
@@ -249,44 +185,33 @@
   vertical-align: middle;
 }
 
-.tab-wrapper {
-  width: 100%;
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
 }
 
 @media (max-width: 600px) {
-  .tab-wrapper {
-    display: flex;
-    justify-content: center;
-  }
-
   .tab-menu {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    width: auto;
-    margin: 10px auto;
+    flex-wrap: wrap;
+    justify-content: flex-start;;
+    gap: 8px;
   }
 
   .tab-menu li {
-    flex: 1 1 auto;
-    min-width: 150px;
-    max-width: 160px;
+    min-width: 130px;
     text-align: center;
-    white-space: nowrap;
   }
 }
 
-
-
-
-
-/* 退会リンク */
-.mypage-delete-account-wrapper {
+.user-detail-delete-account-wrapper {
   margin-top: 40px;
   text-align: center;
 }
 
-.mypage-btn-withdraw {
+.user-detail-btn-withdraw {
   background: none;
   border: none;
   color: #bbb;
@@ -296,8 +221,6 @@
   transition: color 0.2s ease;
 }
 
-.mypage-btn-withdraw:hover {
+.user-detail-btn-withdraw:hover {
   color: #e74c3c;
 }
-
-

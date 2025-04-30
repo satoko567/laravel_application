@@ -38,12 +38,20 @@ Route::group(['middleware' => 'auth'], function () {
   });
 
   // マイページ
-  Route::prefix('users')->group(function () {
-    Route::get('{id}', 'UsersController@show')->name('user.show');
+  Route::prefix('users/{id}')->group(function () {
+    Route::delete('', 'UsersController@destroy')->name('user.delete');
+    Route::get('likes','UsersController@likes')->name('user.likes');
   });
-  Route::delete('{id}', 'UsersController@destroy')->name('user.delete');
 
+  // いいね！
+  Route::prefix('stores/{id}')->group(function () {
+  Route::post('like', 'LikeController@store')->name('stores.like');
+  Route::delete('unlike', 'LikeController@destroy')->name('stores.unlike');
+  });
 });
+
+//投稿一覧(マイページも含む)
+Route::get('users/{id}', 'UsersController@show')->name('user.show');
 
 // 店舗
 Route::get('/stores', 'StoresController@index')->name('stores.index');

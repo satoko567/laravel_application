@@ -11,11 +11,11 @@
         @guest
           <li><a href="{{ route('signup') }}">会員登録</a></li>
           <li><a href="{{ route('login') }}">ログイン</a></li>
-          <li><a href="">店舗一覧</a></li>
+          <li><a href="{{ route('stores.index') }}">店舗一覧</a></li>
         @endguest
         @auth
           <li><a href="{{ route('store.create') }}">新規投稿</a></li>
-          <li><a href="">店舗一覧</a></li>
+          <li><a href="{{ route('stores.index') }}">店舗一覧</a></li>
           <li><a href="{{ route('user.show', ['id' => Auth::id()]) }}">マイページ</a></li>
           <li>
             <a href="{{ route('logout') }}" 
