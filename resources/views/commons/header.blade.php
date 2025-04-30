@@ -17,7 +17,7 @@
           <li><a href="{{ route('store.create') }}">新規投稿</a></li>
           <li><a href="{{ route('stores.index') }}">店舗一覧</a></li>
           <li><a href="{{ route('user.show', ['id' => Auth::id()]) }}">マイページ</a></li>
-          <li>
+          <li>develop_satoko
             <a href="{{ route('logout') }}" 
               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               ログアウト
